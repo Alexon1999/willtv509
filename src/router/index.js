@@ -1,11 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
+import Telecharger from '../views/Telechargement.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/telecharger',
+    name: 'Telecharger',
+    component: Telecharger
   },
   {
     path: '/about',

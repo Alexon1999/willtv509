@@ -8,8 +8,9 @@
       </div>
 
       <div class="navbar__links">
-        <router-link to="/">Home</router-link>
+        <router-link to="/"><i class="fas fa-home"></i></router-link>
         <router-link to="/about">About</router-link>
+        <router-link to="/telecharger">Télécharger</router-link>
       </div>
     </div>
 
@@ -30,7 +31,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "Navbar",
+};
 </script>
 
 <style>
@@ -38,9 +41,9 @@ export default {};
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
-  padding: 20px 50px;
+  padding: 20px 40px 20px 50px;
   max-height: 10vh;
-  background-color: #0f171e;
+  background-color: #13202b;
 }
 .navbar__left_container {
   display: flex;
@@ -55,7 +58,7 @@ export default {};
 }
 .navbar__logo {
   width: 100px;
-  margin-right: 30px;
+  margin-right: 40px;
 }
 .navbar__logo img {
   width: 100%;
@@ -66,6 +69,7 @@ export default {};
   margin-top: 5px;
   flex: 1;
   display: flex;
+  align-items: center;
 }
 
 .navbar__links a {
@@ -73,7 +77,7 @@ export default {};
   color: rgb(202, 202, 202);
   font-weight: 600;
   font-size: 1rem;
-  margin-right: 15px;
+  margin-right: 20px;
 }
 
 .navbar__links a.router-link-active,
@@ -94,6 +98,7 @@ export default {};
   background: none;
   box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
   background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
   color: #ccc;
 }
 
@@ -134,7 +139,7 @@ export default {};
 }
 
 .navbar__profile__avatar:hover {
-  color: rgb(240, 238, 123);
-  border-color: rgb(240, 238, 123);
+  color: rgb(233, 198, 42);
+  border-color: rgb(233, 198, 42);
 }
 </style>

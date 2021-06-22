@@ -2,13 +2,17 @@
   <Navbar />
 
   <router-view />
+
+  <Footer />
 </template>
 
 <script>
 import Navbar from "@/components/Navbar.vue";
+import Footer from "@/components/Footer.vue";
 export default {
   components: {
     Navbar,
+    Footer,
   },
   setup() {},
 };
@@ -25,5 +29,6 @@ export default {
 
 body {
   font-family: "Poppins", sans-serif;
+  background-color: #0f171e;
 }
 </style>
