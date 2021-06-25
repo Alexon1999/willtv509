@@ -17,7 +17,9 @@
 
     <div class="card__side card__side--front">
       <a href="#"
-        ><img src="https://i.ibb.co/ThPNnzM/blade-runner.jpg" class="poster"
+        ><img
+          src="https://i.ibb.co/ThPNnzM/blade-runner.jpg"
+          class="card__poster"
       /></a>
     </div>
   </div>
@@ -30,15 +32,10 @@ export default {
 </script>
 
 <style>
-.poster {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
-}
 .card {
-  width: 270px;
-  height: 350px;
+  width: 200px;
+  min-height: 200px;
+  height: 260px;
   flex: initial;
   position: relative;
   background: #0f171e;
@@ -48,7 +45,7 @@ export default {
   margin: 0 2rem;
 }
 .card__side {
-  height: 350px;
+  height: 260px;
   transition: all 0.8s ease;
   position: absolute;
   top: 0;
@@ -82,6 +79,13 @@ export default {
   transform: rotateY(-180deg);
 }
 
+.card__poster {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
+}
+
 .card__heading {
   text-align: center;
   color: #fff;
@@ -90,5 +94,35 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 75%;
+}
+
+@media only screen and (max-width: 600px), only screen and (hover: none) {
+  .card {
+    /* height: auto; */
+    /* background-color: #fff; */
+    border-radius: 3px;
+    box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.15);
+    height: 220px;
+    width: 170px;
+    margin: 0 1rem;
+  }
+  .card__side {
+    height: 220px;
+  }
+
+  /* .card__side--front {
+    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+  } */
+  .card__side--back {
+    transform: rotateY(0);
+  }
+  .card:hover .card__side--front {
+    transform: rotateY(0);
+  }
+
+  .card__poster {
+    box-shadow: none;
+    /* object-fit: contain; */
+  }
 }
 </style>

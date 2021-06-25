@@ -1,6 +1,12 @@
 <template>
   <div class="carousel__container">
-    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div
+      id="myCarousel"
+      class="carousel slide"
+      data-bs-ride="carousel"
+      data-bs-touch="true"
+      data-bs-pause="hover"
+    >
       <div class="carousel-indicators">
         <button
           type="button"
@@ -21,7 +27,8 @@
         <div
           v-for="post in data"
           :key="post.id"
-          :class="{ active: post.active, 'carousel-item': post }"
+          class="carousel-item"
+          :class="{ active: post.active }"
           data-bs-interval="5000"
         >
           <div class="carousel-item__container">
@@ -81,7 +88,7 @@ export default {
 .carousel__container {
   /* max-width: 1500px; */
   /* margin: auto; */
-  height: 50vh;
+  /* height: 50vh; */
   mask-image: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 1),
@@ -104,13 +111,50 @@ export default {
   align-items: center;
 }
 
-.carousel-inner {
-  height: 50vh;
-}
 .carousel__container .carousel-item__container img {
-  object-fit: cover;
-  /* object-fit: contain; */
-  height: 50vh;
-  width: 80%;
+  object-fit: contain;
+  width: 90%;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 4%;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 701px) and (max-width: 950px) {
+  .carousel-control-next-icon,
+  .carousel-control-prev-icon {
+    width: 20px;
+  }
+}
+
+@media (max-width: 950px) {
+  .carousel-indicators {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 5%;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .carousel-control-next-icon,
+  .carousel-control-prev-icon {
+    width: 20px;
+  }
+  .carousel__container .carousel-item__container img {
+    width: 97%;
+  }
+
+  .carousel__container {
+    margin-bottom: 1.8rem;
+  }
 }
 </style>
