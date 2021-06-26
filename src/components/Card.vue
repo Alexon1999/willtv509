@@ -3,24 +3,26 @@
   <!-- https://codepen.io/jorgemoovein-the-bashful/pen/rNOXXxb -->
   <div class="card">
     <div class="card__side card__side--back">
-      <div class="card__cover">
-        <h4 class="card__heading">
-          <span class="card__heading-span">Skill Set</span>
-        </h4>
-      </div>
-      <div class="card__details">
-        <ul>
-          <li>test</li>
-        </ul>
+      <div class="card__side card__side--back__content">
+        <!-- <h4>Blade Runner</h4> -->
+        <div class="card__details">
+          <button class="card__btn__abonne">abonnez-vous</button>
+          <button class="card__btn__acheter">acheter pour 14.32€</button>
+          <router-link
+            :to="{ name: 'Details', params: { id: 5 } }"
+            class="card__voir_details"
+            >voir détails <i class="fas fa-chevron-right"></i>
+          </router-link>
+        </div>
       </div>
     </div>
 
     <div class="card__side card__side--front">
-      <a href="#"
+      <router-link :to="{ name: 'Details', params: { id: 5 } }"
         ><img
           src="https://i.ibb.co/ThPNnzM/blade-runner.jpg"
           class="card__poster"
-      /></a>
+      /></router-link>
     </div>
   </div>
 </template>
@@ -45,6 +47,7 @@ export default {
   margin: 0 2rem;
 }
 .card__side {
+  cursor: pointer;
   height: 260px;
   transition: all 0.8s ease;
   position: absolute;
@@ -58,7 +61,6 @@ export default {
   border-radius: 3px;
   overflow: hidden;
   /* The image is overflowing the parent. */
-  box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.15);
 }
 /* .card__side--front {
   background-image: linear-gradient(
@@ -69,7 +71,7 @@ export default {
     url(https://cdn.spacetelescope.org/archives/images/screen/heic0406a.jpg);
 } */
 .card__side--back {
-  background-color: #fff;
+  background-color: rgba(43, 42, 42, 0.3);
   transform: rotateY(180deg);
 }
 .card:hover .card__side--back {
@@ -86,6 +88,45 @@ export default {
   box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
 }
 
+.card__details {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.card__details button {
+  width: 100%;
+  padding: 5px 2px;
+  color: rgb(214, 214, 214);
+  background: rgb(18, 163, 83);
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 15px;
+}
+
+.card__details button:hover {
+  opacity: 0.9;
+}
+
+.card__details .card__btn__abonne {
+  background: rgb(224, 80, 36);
+}
+
+.card__voir_details {
+  color: rgb(197, 196, 196);
+  text-decoration: none;
+  cursor: pointer;
+}
+.card__voir_details:hover {
+  color: rgb(197, 196, 196);
+  border-bottom: 1px solid #fff;
+}
+.card__voir_details:hover i {
+  margin-left: 5px;
+}
 .card__heading {
   text-align: center;
   color: #fff;

@@ -97,7 +97,7 @@ export default {
     rgba(0, 0, 0, 0)
   ) !important;
   z-index: -1;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
   /* margin-bottom: -230px !important; */
 }
 
@@ -113,7 +113,7 @@ export default {
 
 .carousel__container .carousel-item__container img {
   object-fit: contain;
-  width: 90%;
+  width: 92%;
 }
 
 .carousel-control-prev,
@@ -150,7 +150,7 @@ export default {
     width: 20px;
   }
   .carousel__container .carousel-item__container img {
-    width: 97%;
+    width: 100%;
   }
 
   .carousel__container {

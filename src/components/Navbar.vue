@@ -44,6 +44,7 @@ export default {
   name: "Navbar",
   setup() {
     const active_searchbar = ref(false);
+    const active_navbar_links = ref(false);
 
     const toggle_active = () => {
       active_searchbar.value = !active_searchbar.value;
@@ -52,6 +53,7 @@ export default {
     return {
       active_searchbar,
       toggle_active,
+      active_navbar_links,
     };
   },
 };
@@ -129,11 +131,10 @@ export default {
 .navbar__search button {
   border: none;
   padding: 7px;
-  background: none;
   box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(5px);
-  color: #ccc;
+  color: rgb(214, 211, 211);
 }
 
 .navbar__search input {
@@ -209,7 +210,7 @@ export default {
   }
   .navbar__search button {
     background-color: #0c141b;
-    border-radius: 2px;
+    border-radius: 3px;
   }
 
   .navbar__search input {
@@ -228,6 +229,26 @@ export default {
   .navbar__search.active button {
     background-color: #0c141b;
     border: 1px solid #ccc;
+  }
+}
+
+@media (max-width: 450px) {
+  .navbar {
+    padding: 10px;
+  }
+  .navbar__search.active input {
+    width: 77vw;
+  }
+  .navbar__logo img {
+    width: 65px;
+  }
+
+  .navbar__parcourir {
+    font-size: 0.8rem;
+  }
+
+  .navbar__profile p {
+    display: none;
   }
 }
 </style>

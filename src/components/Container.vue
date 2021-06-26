@@ -30,6 +30,9 @@ export default {
 }
 .Container__content {
   display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 1.3rem;
 }
 
 .Container__heading {
@@ -37,5 +40,40 @@ export default {
   font-size: 1.4rem;
   font-weight: 600;
   color: rgb(216, 214, 214);
+}
+
+.Container__content::-webkit-scrollbar {
+  height: 6px;
+  -webkit-appearance: none;
+  width: 7px;
+  margin-right: 4px;
+}
+
+.Container__content::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 9px;
+  box-shadow: 0 0 1px rgb(0 0 0 / 40%);
+}
+
+@media (max-width: 750px) {
+  .Container__heading {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .Container__content {
+    padding-bottom: 0;
+  }
+
+  .Container__content::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .Container__heading {
+    font-size: 1rem;
+  }
 }
 </style>

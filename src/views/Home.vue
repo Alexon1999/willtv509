@@ -32,14 +32,20 @@ export default {
         },
       ],
 
-      films: [{ id: 1 }, { id: 2 }],
+      films: [
+        { id: 1 },
+        { id: 2 },
+        { id: 3 },
+        { id: 4 },
+        { id: 5 },
+        { id: 6 },
+        { id: 7 },
+        { id: 8 },
+      ],
     };
   },
 };
 </script>
 
 <style>
-.home {
-  margin-top: 15px;
-}
 </style>
