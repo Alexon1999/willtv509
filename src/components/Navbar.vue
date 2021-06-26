@@ -218,6 +218,8 @@ export default {
     top: 0;
     right: 0;
     width: 0;
+    border: none;
+    background-color: #0c141b;
     transition: all 0.5s ease;
   }
 
@@ -227,7 +229,6 @@ export default {
 
   .navbar__search.active input,
   .navbar__search.active button {
-    background-color: #0c141b;
     border: 1px solid #ccc;
   }
 }
