@@ -14,10 +14,14 @@
       </div>
 
       <div class="navbar__parcourir">
-        <div class="navbar__parcourir__container">
+        <div class="navbar__parcourir__container" @click="toggle_active_links">
           <p>Parcourir</p>
           <i class="fas fa-sort-down"></i>
         </div>
+        <NavbarModal
+          :active="active_navbar_links"
+          :toggle_active_links="toggle_active_links"
+        />
       </div>
     </div>
 
@@ -27,33 +31,73 @@
         <button @click="toggle_active"><i class="fas fa-search"></i></button>
       </div>
 
-      <div class="navbar__profile">
+      <div class="navbar__profile" @click="toggleUserModal">
         <div class="navbar__profile__avatar">
           <i class="fas fa-user-alt"></i>
         </div>
-        <p>Felipe</p>
+        <p v-if="haveUser" class="navbar__profile__user crop">
+          {{ user.email }}
+        </p>
+        <p v-else>Se Connecter</p>
       </div>
     </div>
+    <UserModal
+      :active="active_user_modal"
+      :closeUserModal="closeUserModal"
+      :user="user"
+    />
   </div>
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, computed } from "vue";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
+
+import NavbarModal from "@/components/NavbarModal.vue";
+import UserModal from "@/components/UserModal.vue";
 
 export default {
   name: "Navbar",
+  components: { NavbarModal, UserModal },
+
   setup() {
+    const store = useStore();
+    const router = useRouter();
     const active_searchbar = ref(false);
     const active_navbar_links = ref(false);
+    const active_user_modal = ref(false);
 
     const toggle_active = () => {
       active_searchbar.value = !active_searchbar.value;
+    };
+
+    const toggle_active_links = () => {
+      active_navbar_links.value = !active_navbar_links.value;
+    };
+
+    const closeUserModal = () => {
+      active_user_modal.value = false;
+    };
+
+    const toggleUserModal = () => {
+      if (store.getters.haveUser) {
+        active_user_modal.value = !active_user_modal.value;
+      } else {
+        router.push({ name: "Authentication" });
+      }
     };
 
     return {
       active_searchbar,
       toggle_active,
       active_navbar_links,
+      toggle_active_links,
+      active_user_modal,
+      toggleUserModal,
+      closeUserModal,
+      haveUser: computed(() => store.getters.haveUser),
+      user: computed(() => store.state.user),
     };
   },
 };
@@ -111,7 +155,9 @@ export default {
 .navbar__parcourir {
   display: none;
   margin-top: 5px;
+  cursor: pointer;
 }
+
 .navbar__parcourir__container {
   display: flex;
   color: rgb(202, 202, 202);
@@ -120,7 +166,7 @@ export default {
   margin: 0 5px 0;
 }
 .navbar__parcourir__container i {
-  margin: 2px 0;
+  margin: 2px 0px 2px 3px;
 }
 .navbar__search {
   display: flex;
@@ -156,6 +202,7 @@ export default {
   display: flex;
   align-items: center;
   margin-left: 20px;
+  cursor: pointer;
 }
 
 .navbar__profile p {
@@ -178,6 +225,13 @@ export default {
   border-color: rgb(233, 198, 42);
 }
 
+.navbar__profile__user.crop {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100px;
+}
+
 @media (max-width: 900px) {
   .navbar__links {
     display: none;
@@ -195,18 +249,25 @@ export default {
   }
 }
 
+@media (max-width: 800px) {
+  .navbar__profile p {
+    font-size: 0.8rem;
+  }
+}
+
 @media (max-width: 720px) {
   .navbar {
     padding: 20px;
   }
 }
 
-@media (max-width: 612px) {
-  .navbar {
-    padding: 20px;
+@media (max-width: 680px) {
+  .navbar__profile p {
+    display: none;
   }
   .navbar__search {
     position: relative;
+    z-index: 4;
   }
   .navbar__search button {
     background-color: #0c141b;
@@ -224,7 +285,7 @@ export default {
   }
 
   .navbar__search.active input {
-    width: 68vw;
+    width: 80vw;
   }
 
   .navbar__search.active input,
@@ -233,13 +294,17 @@ export default {
   }
 }
 
-@media (max-width: 450px) {
-  .navbar {
-    padding: 10px;
-  }
+@media (max-width: 550px) {
   .navbar__search.active input {
     width: 77vw;
   }
+}
+
+@media (max-width: 450px) {
+  .navbar {
+    padding: 20px 10px;
+  }
+
   .navbar__logo img {
     width: 65px;
   }

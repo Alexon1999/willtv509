@@ -7,14 +7,40 @@
 </template>
 
 <script>
+import { useStore } from "vuex";
+import { onMounted, onUnmounted, ref } from "vue";
+
 import Navbar from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
+import { auth } from "@/firebase";
+
 export default {
+  name: "App",
   components: {
     Navbar,
     Footer,
   },
-  setup() {},
+  setup() {
+    const store = useStore();
+    const unsubscribeEvent = ref(new Function());
+
+    onMounted(() => {
+      const unSubscribe = auth.onAuthStateChanged((authUser) => {
+        if (authUser) {
+          // user logged in
+          store.commit("setUser", authUser);
+        } else {
+          // user not loggged in
+          store.commit("setUser", null);
+        }
+      });
+      unsubscribeEvent.value = unSubscribe;
+    });
+
+    onUnmounted(() => {
+      unsubscribeEvent.value();
+    });
+  },
 };
 </script>
 
@@ -30,5 +56,6 @@ export default {
 body {
   font-family: "Poppins", sans-serif;
   background-color: #0f171e;
+  color: rgb(216, 214, 214);
 }
 </style>

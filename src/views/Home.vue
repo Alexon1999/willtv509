@@ -16,6 +16,7 @@ import Container from "@/components/Container.vue";
 export default {
   name: "Home",
   components: { Carousel, Container },
+
   setup() {
     return {
       new_content: [

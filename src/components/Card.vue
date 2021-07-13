@@ -137,6 +137,12 @@ export default {
   width: 75%;
 }
 
+@media (min-width: 601px) {
+  .card__side--front {
+    pointer-events: none;
+  }
+}
+
 @media only screen and (max-width: 600px), only screen and (hover: none) {
   .card {
     /* height: auto; */
