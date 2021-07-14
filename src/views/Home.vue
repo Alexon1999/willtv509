@@ -2,9 +2,28 @@
   <div class="home">
     <Carousel :data="new_content" />
 
-    <Container :data="films" :titre="'Vissionnez en direct'" />
-    <Container :data="films" :titre="'Films que vous pourrez aimer'" />
-    <Container :data="films" :titre="'Series que vous pourrez aimer'" />
+    <!-- <Container :data="films" :titre="'Vissionnez en direct'" /> -->
+
+    <Container
+      :data="videos.films"
+      :categorie="'films'"
+      :titre="'Films que vous pourrez aimer'"
+    />
+    <Container
+      :data="videos.series"
+      :categorie="'series'"
+      :titre="'Series que vous pourrez aimer'"
+    />
+    <Container
+      :data="videos.clips"
+      :titre="'Video Clips que vous pourrez aimer'"
+      :categorie="'clips'"
+    />
+    <Container
+      :data="videos.events"
+      :titre="'Events que vous pourrez aimer'"
+      :categorie="'events'"
+    />
   </div>
 </template>
 
@@ -12,12 +31,17 @@
 // @ is an alias to /src
 import Carousel from "@/components/Carousel.vue";
 import Container from "@/components/Container.vue";
+import getVideos from "@/composables/getVideos";
 
 export default {
   name: "Home",
   components: { Carousel, Container },
 
   setup() {
+    const { videos, getDatas } = getVideos();
+
+    getDatas();
+
     return {
       new_content: [
         {
@@ -43,6 +67,8 @@ export default {
         { id: 7 },
         { id: 8 },
       ],
+
+      videos,
     };
   },
 };

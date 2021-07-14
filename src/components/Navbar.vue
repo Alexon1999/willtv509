@@ -21,6 +21,7 @@
         <NavbarModal
           :active="active_navbar_links"
           :toggle_active_links="toggle_active_links"
+          :close_active_links="close_active_links"
         />
       </div>
     </div>
@@ -76,6 +77,10 @@ export default {
       active_navbar_links.value = !active_navbar_links.value;
     };
 
+    const close_active_links = () => {
+      active_navbar_links.value = false;
+    };
+
     const closeUserModal = () => {
       active_user_modal.value = false;
     };
@@ -93,6 +98,7 @@ export default {
       toggle_active,
       active_navbar_links,
       toggle_active_links,
+      close_active_links,
       active_user_modal,
       toggleUserModal,
       closeUserModal,
@@ -127,6 +133,7 @@ export default {
   margin-right: 40px;
 }
 .navbar__logo img {
+  max-width: initial;
   width: 100px;
   object-fit: contain;
 }
@@ -166,7 +173,7 @@ export default {
   margin: 0 5px 0;
 }
 .navbar__parcourir__container i {
-  margin: 2px 0px 2px 3px;
+  margin: 1px 0px 2px 3px;
 }
 .navbar__search {
   display: flex;
@@ -315,6 +322,12 @@ export default {
 
   .navbar__profile p {
     display: none;
+  }
+}
+
+@media (max-width: 350px) {
+  .navbar__search.active input {
+    width: 75vw;
   }
 }
 </style>

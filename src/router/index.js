@@ -16,7 +16,7 @@ const routes = [
     component: Telecharger,
   },
   {
-    path: "/details/:id",
+    path: "/details/:categorie/:id",
     name: "Details",
     component: Details,
     props: true,

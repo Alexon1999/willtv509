@@ -3,6 +3,7 @@
     class="navbar__modal"
     :class="{ active: active }"
     @click="toggle_active_links"
+    @touchmove="close_active_links"
   >
     <div class="navbar__modal__content">
       <div class="navbar__modal__content__links">
@@ -19,6 +20,7 @@ export default {
   props: {
     active: Boolean,
     toggle_active_links: Function,
+    close_active_links: Function,
   },
 };
 </script>

@@ -4,7 +4,7 @@
 
     <div class="Container__content">
       <div v-for="card in data" :key="card.id">
-        <Card />
+        <Card :data="card" :categorie="categorie" />
       </div>
     </div>
   </div>
@@ -17,6 +17,7 @@ export default {
   props: {
     data: Array,
     titre: String,
+    categorie: String,
   },
   components: {
     Card,
@@ -68,6 +69,10 @@ export default {
 
   .Container__content::-webkit-scrollbar {
     display: none;
+  }
+
+  .Container__heading {
+    margin: 0 0 1.5rem 1rem;
   }
 }
 

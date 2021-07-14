@@ -20,6 +20,7 @@ export default {
     Navbar,
     Footer,
   },
+
   setup() {
     const store = useStore();
     const unsubscribeEvent = ref(new Function());
