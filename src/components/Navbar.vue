@@ -28,8 +28,15 @@
 
     <div class="navbar__right_container">
       <div class="navbar__search" :class="{ active: active_searchbar }">
-        <input type="text" placeholder="rechercher" />
-        <button @click="toggle_active"><i class="fas fa-search"></i></button>
+        <input
+          type="text"
+          placeholder="rechercher"
+          ref="search_input"
+          @blur="closeSearchbar"
+        />
+        <button @click="toggle_active">
+          <i class="fas fa-search"></i>
+        </button>
       </div>
 
       <div class="navbar__profile" @click="toggleUserModal">
@@ -37,7 +44,7 @@
           <i class="fas fa-user-alt"></i>
         </div>
         <p v-if="haveUser" class="navbar__profile__user crop">
-          {{ user.email }}
+          {{ user.displayName || user.email }}
         </p>
         <p v-else>Se Connecter</p>
       </div>
@@ -51,9 +58,10 @@
 </template>
 
 <script>
-import { ref, computed } from "vue";
+import { ref, computed, watchEffect } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
+import { useWindowSize } from "vue-window-size";
 
 import NavbarModal from "@/components/NavbarModal.vue";
 import UserModal from "@/components/UserModal.vue";
@@ -68,9 +76,18 @@ export default {
     const active_searchbar = ref(false);
     const active_navbar_links = ref(false);
     const active_user_modal = ref(false);
+    const search_input = ref(null);
+
+    const { width, height } = useWindowSize();
+
+    const closeSearchbar = () => {
+      active_searchbar.value = false;
+    };
 
     const toggle_active = () => {
-      active_searchbar.value = !active_searchbar.value;
+      if (width.value < 700) {
+        active_searchbar.value = !active_searchbar.value;
+      }
     };
 
     const toggle_active_links = () => {
@@ -96,6 +113,8 @@ export default {
     return {
       active_searchbar,
       toggle_active,
+      search_input,
+      closeSearchbar,
       active_navbar_links,
       toggle_active_links,
       close_active_links,
@@ -232,13 +251,6 @@ export default {
   border-color: rgb(233, 198, 42);
 }
 
-.navbar__profile__user.crop {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  width: 100px;
-}
-
 @media (max-width: 900px) {
   .navbar__links {
     display: none;
@@ -274,11 +286,11 @@ export default {
   }
   .navbar__search {
     position: relative;
-    z-index: 4;
   }
   .navbar__search button {
     background-color: #0c141b;
     border-radius: 3px;
+    z-index: 1;
   }
 
   .navbar__search input {

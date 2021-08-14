@@ -1,19 +1,16 @@
 import { ref } from "vue";
-import { db } from "@/firebase";
+import Api from "../api";
 
-const getVideoDetails = (collectionName, id) => {
-  const data = ref(null);
+const getVideoDetails = (id) => {
+  const details = ref(null);
 
   const getData = async () => {
-    const doc = await db
-      .collection(collectionName)
-      .doc(id)
-      .get();
+    const data = await Api.getDetailsVideo(id);
 
-    data.value = { id: doc.id, ...doc.data() };
+    details.value = data;
   };
 
-  return { data, getData };
+  return { details, getData };
 };
 
 export default getVideoDetails;

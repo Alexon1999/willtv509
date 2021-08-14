@@ -3,6 +3,9 @@ import Home from "../views/Home.vue";
 import Telecharger from "../views/Telechargement.vue";
 import Details from "../views/Details.vue";
 import Authentication from "../views/Authentication.vue";
+import Abonnement from "../views/Abonnement";
+import PaiementMonCash from "../views/PaiementMonCash";
+import MesVideos from "../views/MesVideos";
 
 const routes = [
   {
@@ -26,6 +29,28 @@ const routes = [
     name: "Authentication",
     component: Authentication,
   },
+  {
+    path: "/abonnement",
+    name: "Abonnement",
+    component: Abonnement,
+  },
+  {
+    path: "/payment/moncash",
+    name: "PaiementMonCash",
+    component: PaiementMonCash,
+  },
+  // {
+  //   path: "/stripe-checkout/:price_id",
+  //   name: "StripeCheckout",
+  //   component: StripeCheckout,
+  //   props: true,
+  // },
+  {
+    path: "/mesvideos",
+    name: "MesVideos",
+    component: MesVideos,
+  },
+
   {
     path: "/about",
     name: "About",

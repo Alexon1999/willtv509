@@ -5,24 +5,14 @@
     <!-- <Container :data="films" :titre="'Vissionnez en direct'" /> -->
 
     <Container
-      :data="videos.films"
-      :categorie="'films'"
-      :titre="'Films que vous pourrez aimer'"
-    />
-    <Container
-      :data="videos.series"
-      :categorie="'series'"
-      :titre="'Series que vous pourrez aimer'"
-    />
-    <Container
-      :data="videos.clips"
-      :titre="'Video Clips que vous pourrez aimer'"
-      :categorie="'clips'"
-    />
-    <Container
-      :data="videos.events"
-      :titre="'Events que vous pourrez aimer'"
-      :categorie="'events'"
+      v-for="categorie in datas"
+      :key="categorie.id"
+      :data="categorie.videos"
+      :categorie="{
+        name: categorie.name,
+        id: categorie.id,
+        description: categorie.description,
+      }"
     />
   </div>
 </template>
@@ -31,14 +21,14 @@
 // @ is an alias to /src
 import Carousel from "@/components/Carousel.vue";
 import Container from "@/components/Container.vue";
-import getVideos from "@/composables/getVideos";
+import getCategoriesVideos from "@/composables/getCategoriesVideos";
 
 export default {
   name: "Home",
   components: { Carousel, Container },
 
   setup() {
-    const { videos, getDatas } = getVideos();
+    const { datas, getDatas } = getCategoriesVideos();
 
     getDatas();
 
@@ -57,18 +47,7 @@ export default {
         },
       ],
 
-      films: [
-        { id: 1 },
-        { id: 2 },
-        { id: 3 },
-        { id: 4 },
-        { id: 5 },
-        { id: 6 },
-        { id: 7 },
-        { id: 8 },
-      ],
-
-      videos,
+      datas,
     };
   },
 };

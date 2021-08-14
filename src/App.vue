@@ -29,10 +29,13 @@ export default {
       const unSubscribe = auth.onAuthStateChanged((authUser) => {
         if (authUser) {
           // user logged in
+          // console.log(authUser);
           store.commit("setUser", authUser);
+          store.dispatch("getClientFromDatabase");
         } else {
           // user not loggged in
           store.commit("setUser", null);
+          store.commit("setClient", null);
         }
       });
       unsubscribeEvent.value = unSubscribe;
@@ -58,5 +61,12 @@ body {
   font-family: "Poppins", sans-serif;
   background-color: #0f171e;
   color: rgb(216, 214, 214);
+}
+
+.crop {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100px;
 }
 </style>
