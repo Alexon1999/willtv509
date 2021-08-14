@@ -51,6 +51,11 @@
         ></VuePlayerVideo>
       </div>
     </div>
+    <div v-else class="details__content">
+      <div class="spinner-border mx-auto" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
 
     <Modal :id="'modeDePaiement'">
       <div class="modeDePaiement__content">
