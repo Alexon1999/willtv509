@@ -27,9 +27,14 @@
       <div className="footer__contacts">
         <h1>Prendre contact avec nous</h1>
         <div className="footer__contacts-content">
-          <p><i className="fas fa-phone-alt"></i> {contacts.tel}</p>
-          <a href=""> <i className="fas fa-envelope"></i> {contacts.email} </a>
-          <p><i className="fas fa-map-marker-alt"></i> {contacts.addr}</p>
+          <p>
+            <i className="fas fa-phone-alt"></i>Internationale (1) 307 776 9710
+          </p>
+          <p><i className="fas fa-phone-alt"></i>Haïti (509) 44026620</p>
+          <a href="">
+            <i className="fas fa-envelope"></i>contact@willtv509.com</a
+          >
+          <!-- <p><i className="fas fa-map-marker-alt"></i> {contacts.addr}</p> -->
         </div>
         <div className="footer__suivez-nous">
           <a href="#test" rel="noopener" target="_blank">
@@ -41,9 +46,9 @@
           <a href="#test" rel="noopener" target="_blank">
             <i className="fab fa-twitter"></i>
           </a>
-          <a href="#test" rel="noopener" target="_blank">
+          <!-- <a href="#test" rel="noopener" target="_blank">
             <i className="fab fa-linkedin-in"></i>
-          </a>
+          </a> -->
         </div>
       </div>
 
