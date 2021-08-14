@@ -114,7 +114,8 @@ export default {
 }
 
 .paiement__success img {
-  width: 500px;
+  max-width: 500px;
+  width: 100%;
   object-fit: contain;
   margin-bottom: 1.2rem;
 }
