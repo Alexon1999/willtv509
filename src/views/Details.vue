@@ -44,7 +44,10 @@
         v-if="!details?.prix || haveActiveSubscription || possede"
       >
         <VuePlayerVideo
-          src="https://icecube-us-846.icedrive.io/download?p=Z6VsmL89dXlF7MXBG4IA95h.JouIAB0yz2tsEiHjV_xW_P.6bGZp1z_LB3nMC._JfuhnLchZ6Z7apJcCA4w.ndhjKb2j0M8RLjM36Na.yBhZPhp2Ddhvjz9wbyOzRGqiqgY53Afg7SspLlWcGDP8MF6eo5_tJ49nLpkPutzshyc45lO75mcm02fGU1rme8G48Or2SpZ7S9FFhj36K_nKBM5.zEAu4Yl1rnRSc9aXDbmL3qFWJ6yq3WKGNuaHaBpJ57Cx8IQowyslDy99ZmH5_A--"
+          :src="
+            details?.video_url ||
+            'https://public.am.files.1drv.com/y4mddkerLte929Q26Hq1KqCVbpn17ZID6lEgY5GJhoKx_QoVzDZllbUyqKAbywmBN4ZVa_cVaMGK5ySANokXAyG8TU6jmy7HNfplX1SYnYDGVyTKvfDdAfFqburIhwi1CnbbmqhwDNeccsLT7xpDtlfWIif10k9E2CptUqqh0sbVhUauXJEdnzyGg1BTjBQKL6h2DEnUHO3fm-GidyYvSvVM8DG55GByR7M61JUUS5euaE/WhatsApp%20Video%202021-08-14%20at%2019.23.06.mp4?psid=1?'
+          "
         ></VuePlayerVideo>
       </div>
     </div>
