@@ -4,16 +4,24 @@
 
     <!-- <Container :data="films" :titre="'Vissionnez en direct'" /> -->
 
-    <Container
-      v-for="categorie in datas"
-      :key="categorie.id"
-      :data="categorie.videos"
-      :categorie="{
-        name: categorie.name,
-        id: categorie.id,
-        description: categorie.description,
-      }"
-    />
+    <div class="home__container">
+      <div class="spinner__container" v-if="loading">
+        <div class="spinner spinner-border text-warning" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      <Container
+        v-else
+        v-for="categorie in datas"
+        :key="categorie.id"
+        :data="categorie.videos"
+        :categorie="{
+          name: categorie.name,
+          id: categorie.id,
+          description: categorie.description,
+        }"
+      />
+    </div>
   </div>
 </template>
 
@@ -28,7 +36,7 @@ export default {
   components: { Carousel, Container },
 
   setup() {
-    const { datas, getDatas } = getCategoriesVideos();
+    const { datas, getDatas, loading } = getCategoriesVideos();
 
     getDatas();
 
@@ -48,10 +56,27 @@ export default {
       ],
 
       datas,
+      loading,
     };
   },
 };
 </script>
 
-<style>
+<style >
+.home__container {
+  min-height: 50vh;
+}
+
+.spinner__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  width: 100%;
+}
+
+.spinner {
+  width: 3rem;
+  height: 3rem;
+}
 </style>
