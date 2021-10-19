@@ -43,12 +43,30 @@
         class="videoPlayer__container"
         v-if="!details?.prix || haveActiveSubscription || possede"
       >
-        <VuePlayerVideo
+        <!-- <VuePlayerVideo
           :src="
             details?.video_url ||
             'https://public.am.files.1drv.com/y4mddkerLte929Q26Hq1KqCVbpn17ZID6lEgY5GJhoKx_QoVzDZllbUyqKAbywmBN4ZVa_cVaMGK5ySANokXAyG8TU6jmy7HNfplX1SYnYDGVyTKvfDdAfFqburIhwi1CnbbmqhwDNeccsLT7xpDtlfWIif10k9E2CptUqqh0sbVhUauXJEdnzyGg1BTjBQKL6h2DEnUHO3fm-GidyYvSvVM8DG55GByR7M61JUUS5euaE/WhatsApp%20Video%202021-08-14%20at%2019.23.06.mp4?psid=1?'
           "
-        ></VuePlayerVideo>
+        ></VuePlayerVideo> -->
+
+        <!-- solution Vimeo -->
+        <div style="padding: 56.25% 0 0 0; position: relative">
+          <iframe
+            src="https://player.vimeo.com/video/634911825?h=85fee08994&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen
+            style="
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+            "
+            title="5 TYPES D&amp;#039;AMIS &amp;Agrave; &amp;Eacute;VITER POUR NE PAS SOUFFRIR ET DE SE FAIRE TRAHIR PAR DES FAKE FRIENDS"
+          ></iframe>
+        </div>
       </div>
     </div>
     <div v-else class="details__content">
@@ -147,6 +165,12 @@ export default {
     const haveActiveSubscription = computed(
       () => store.getters.haveActiveSubscription
     );
+
+    onMounted(() => {
+      const vimeoScript = document.createElement("script");
+      vimeoScript.setAttribute("src", "https://player.vimeo.com/api/player.js");
+      document.head.appendChild(vimeoScript);
+    });
 
     const goToStripePaymentCheckoutPage = async () => {
       if (details.value && client.value) {
