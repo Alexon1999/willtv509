@@ -188,7 +188,7 @@ export default {
           "/Payment/Redirect?token=" +
           payment.payment_token.token;
       } catch (error) {
-        loading.value = false;
+        loading.value.moncash = false;
         // console.log(error);
       }
     };
