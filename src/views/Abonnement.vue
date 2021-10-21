@@ -17,7 +17,8 @@
             {{ plan.product.name }}
           </h1>
           <h2>${{ plan.unit_amount / 100 }}</h2>
-          <p>{{ plan.product.description }}</p>
+          <!-- <p>{{ plan.product.description }}</p> -->
+          <div v-html="plan.product.description"></div>
 
           <!-- :disabled="client?.monAbonnement?.status === 'active'" -->
           <button
