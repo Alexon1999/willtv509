@@ -35,6 +35,7 @@
 import { ref } from "vue";
 import { auth } from "@/firebase";
 import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 import Api from "@/api";
 
 export default {
@@ -44,6 +45,7 @@ export default {
     changeMode: Function,
   },
   setup() {
+    const store = useStore();
     const router = useRouter();
     const email = ref("");
     const password = ref("");
@@ -65,6 +67,7 @@ export default {
             email: email.value,
             username: username.value,
           });
+          store.commit("setClient", data);
           router.push("/");
         } else {
           throw new Error("les champs ne doivent pas être vide");

@@ -25,7 +25,11 @@
             class="abonnement__take_btn"
             @click="changeSelectedPlan(plan.id)"
           >
-            {{ !!plan.taked ? "Pris" : "Prendre" }}
+            {{
+              plan.product.id === client?.monAbonnement?.product_id
+                ? "Pris 😀"
+                : "Prendre"
+            }}
           </button>
         </div>
       </div>

@@ -68,6 +68,7 @@ import {
 import Card from "@/components/Card.vue";
 
 import { useWindowSize } from "vue-window-size";
+import { disableScroll, enableScroll } from "@/utilities/scroll";
 
 export default {
   name: "Container",
@@ -88,17 +89,25 @@ export default {
       e.preventDefault();
       e.stopPropagation();
       // console.dir(e.target);
-      window.location.href = e.target.href;
-      setTimeout(() => {
-        const offsetTop = document.querySelector(e.target.hash)?.offsetTop - 60;
 
-        // console.log({ href, offsetTop });
+      disableScroll();
 
-        window.scroll({
-          top: offsetTop || 0,
-          behavior: "smooth",
-        });
-      }, 1150);
+      new Promise((resolve, reject) => {
+        window.location.href = e.target.href;
+        setTimeout(() => {
+          const offsetTop =
+            document.querySelector(e.target.hash)?.offsetTop - 70;
+
+          // console.log({ href, offsetTop });
+
+          window.scroll({
+            top: offsetTop || 0,
+            behavior: "smooth",
+          });
+
+          resolve();
+        }, 1150);
+      }).then(enableScroll);
     };
 
     const reformat_data = () => {
