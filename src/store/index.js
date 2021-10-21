@@ -34,7 +34,10 @@ const getters = {
   },
 
   haveActiveSubscription(state) {
-    return state.client?.monAbonnement?.status === "active";
+    return (
+      state.client?.monAbonnement?.status === "active" ||
+      state.client?.monAbonnement?.status === "trialing"
+    );
   },
 };
 
