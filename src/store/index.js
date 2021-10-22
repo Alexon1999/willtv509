@@ -19,11 +19,14 @@ const mutations = {
 const actions = {
   async getClientFromDatabase({ state, commit }) {
     if (state.user) {
-      const client = await Api.getClient({
+      const [client, error] = await Api.getClient({
         email: state.user.email,
         username: state.user.displayName,
       });
-      commit("setClient", client);
+      // console.log({ client, error });
+      if (!error) {
+        commit("setClient", client);
+      }
     }
   },
 };

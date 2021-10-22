@@ -27,8 +27,13 @@ const Api = {
   },
 
   async getClient(client) {
-    const { data } = await axios.post("api/get-client/", client);
-    return data;
+    try {
+      const { data } = await axios.post("api/get-client/", client);
+      return [data, null];
+    } catch (error) {
+      // console.log({error});
+      return [null, error];
+    }
   },
 
   async getPlans() {

@@ -84,7 +84,9 @@ export default {
           window.location.href = res.url;
         }
       } else {
-        alert("Connectez-Vous pour pouvoir bénéficier pleinement notre site");
+        alert(
+          "Connectez-Vous pour pouvoir bénéficier pleinement de notre site"
+        );
       }
     };
 

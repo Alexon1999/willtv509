@@ -24,6 +24,7 @@ import { auth } from "@/firebase";
 
 import Api from "@/api";
 import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 
 export default {
   name: "UserModal",
@@ -36,6 +37,7 @@ export default {
 
   setup(props) {
     const router = useRouter();
+    const store = useStore();
 
     const redirectToMesVideos = () => {
       router.push("/mesvideos");
@@ -53,17 +55,11 @@ export default {
     };
 
     const redirectToPortal = async () => {
-      if (props.user) {
+      if (props.user && store.state.client) {
         props.closeUserModal();
 
-        const user = props.user;
-        const client = await Api.getClient({
-          email: user.email,
-          username: user.displayName,
-        });
-
         const res = await Api.getCustomerPortalPage({
-          customer: client,
+          customer: store.state.client,
           origin: window.location.origin,
         });
 
