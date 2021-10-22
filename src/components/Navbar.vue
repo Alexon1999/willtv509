@@ -27,17 +27,17 @@
     </div>
 
     <div class="navbar__right_container">
-      <div class="navbar__search" :class="{ active: active_searchbar }">
+      <form class="navbar__search" :class="{ active: active_searchbar }">
         <input
           type="text"
-          placeholder="rechercher"
+          placeholder="Title, people, genre"
           ref="search_input"
           @blur="closeSearchbar"
         />
-        <button @click="toggle_active">
+        <button type="submit" @click.prevent="GoSearch">
           <i class="fas fa-search"></i>
         </button>
-      </div>
+      </form>
 
       <div class="navbar__profile" @click="toggleUserModal">
         <div class="navbar__profile__avatar">
@@ -84,9 +84,15 @@ export default {
       active_searchbar.value = false;
     };
 
-    const toggle_active = () => {
+    const GoSearch = () => {
       if (width.value < 700) {
         active_searchbar.value = !active_searchbar.value;
+      }
+      if (search_input.value.value) {
+        router.push({
+          name: "Search",
+          params: { word: search_input.value.value },
+        });
       }
     };
 
@@ -112,7 +118,6 @@ export default {
 
     return {
       active_searchbar,
-      toggle_active,
       search_input,
       closeSearchbar,
       active_navbar_links,
@@ -121,8 +126,10 @@ export default {
       active_user_modal,
       toggleUserModal,
       closeUserModal,
+      GoSearch,
       haveUser: computed(() => store.getters.haveUser),
       user: computed(() => store.state.user),
+      router,
     };
   },
 };

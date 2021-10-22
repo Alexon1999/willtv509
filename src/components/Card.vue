@@ -21,12 +21,13 @@
         :src="data.image_url || 'https://i.ibb.co/ThPNnzM/blade-runner.jpg'"
     /></router-link>
 
-    <div
-      class="card__prix"
-      :class="{ gratuit: data.prix === 0, payant: data.prix > 0 }"
-    >
-      <div class="card__prix_round"></div>
-      {{ data.prix > 0 ? "payant" : "gratuit" }}
+    <div class="card__prix">
+      <!-- :class="{ gratuit: data.prix === 0, payant: data.prix > 0 }" -->
+
+      <!-- <div class="card__prix_round"></div>
+      {{ data.prix > 0 ? "payant" : "gratuit" }} -->
+      <img v-if="data.prix > 0" src="../assets/dollar.svg" />
+      <img v-else src="../assets/gratuit.svg" />
     </div>
   </div>
 </template>
@@ -71,8 +72,9 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  height: 18px;
-  min-width: 37%;
+  /* height: 18px; */
+  /* min-width: 37%; */
+  height: 24px;
   font-size: 0.7rem;
   font-weight: 550;
   display: flex;
@@ -80,7 +82,12 @@ export default {
   align-items: center;
   border-radius: 5px;
   color: var(--bg-color);
-  border: 2px solid var(--bg-color);
+  /* border: 2px solid var(--bg-color); */
+}
+
+.card__prix img {
+  height: 24px;
+  width: auto;
 }
 
 .card__prix.gratuit {
@@ -106,7 +113,7 @@ export default {
   width: 100%;
   height: 100%;
 }
-.card img {
+.card__image_container img {
   width: 100%;
   height: 100%;
   object-fit: fill;

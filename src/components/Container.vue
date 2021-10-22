@@ -7,7 +7,7 @@
     <h2 class="Container__heading">{{ categorie.description }}</h2>
 
     <div
-      v-if="windowWidth < 600 || data?.length < nb_cards"
+      v-if="windowWidth < 600 || data?.length <= nb_cards"
       class="Container__content"
     >
       <div v-for="card in data" :key="card.id">

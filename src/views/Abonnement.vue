@@ -18,7 +18,7 @@
           </h1>
           <h2>${{ plan.unit_amount / 100 }}</h2>
           <!-- <p>{{ plan.product.description }}</p> -->
-          <div v-html="plan.product.description"></div>
+          <div v-html="plan.product.metadata.description"></div>
 
           <!-- :disabled="client?.monAbonnement?.status === 'active'" -->
           <button
@@ -123,7 +123,7 @@ export default {
 }
 
 .abonnement__plan__card {
-  padding: 2rem;
+  padding: 2rem 1rem;
   background: rgb(0, 0, 0);
   display: flex;
   justify-content: center;
@@ -132,15 +132,20 @@ export default {
   border-radius: 5px;
   width: 300px;
   cursor: pointer;
+  border: 1px solid #fff;
 }
 .abonnement__plan__card.taked {
-  border: 1px solid rgb(120, 255, 120);
+  /* border: 1px solid rgb(120, 255, 120); */
+  border: 1px solid;
+  border-image: linear-gradient(45deg, rgb(0, 143, 104), rgb(250, 224, 66)) 1;
   opacity: 1 !important;
+  pointer-events: none;
 }
 
 .abonnement__plan__card.disabled {
   opacity: 0.7;
   cursor: not-allowed;
+  pointer-events: none;
 }
 
 .abonnement__plan__card img {
@@ -174,10 +179,6 @@ export default {
 }
 .abonnement__plan__card.taked:hover .abonnement__take_btn {
   color: rgb(207, 207, 207);
-}
-
-.abonnement__plan__card.disabled .abonnement__take_btn {
-  cursor: not-allowed;
 }
 
 .abonnement__info {

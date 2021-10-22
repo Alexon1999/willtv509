@@ -6,6 +6,8 @@ import Authentication from "../views/Authentication.vue";
 import Abonnement from "../views/Abonnement";
 import PaiementMonCash from "../views/PaiementMonCash";
 import MesVideos from "../views/MesVideos";
+import Search from "../views/Search";
+import NotFound from "../views/NotFound";
 
 const routes = [
   {
@@ -50,6 +52,12 @@ const routes = [
     name: "MesVideos",
     component: MesVideos,
   },
+  {
+    path: "/search/:word",
+    name: "Search",
+    component: Search,
+    props: true,
+  },
 
   {
     path: "/about",
@@ -59,6 +67,13 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
+  },
+
+  // 404 Not Found Page
+  {
+    path: "/:pathMatch(.*)*",
+    name: "NotFound",
+    component: NotFound,
   },
 ];
 

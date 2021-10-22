@@ -31,7 +31,7 @@
             <i className="fas fa-phone-alt"></i>Internationale (1) 307 776 9710
           </p>
           <p><i className="fas fa-phone-alt"></i>Haïti (509) 44026620</p>
-          <a href="">
+          <a href="mailto:contact@willtv509.com">
             <i className="fas fa-envelope"></i>contact@willtv509.com</a
           >
           <!-- <p><i className="fas fa-map-marker-alt"></i> {contacts.addr}</p> -->
@@ -52,10 +52,12 @@
         </div>
       </div>
 
-      <!-- <div className="footer__legales">
+      <div className="footer__legales">
         <h1>Conformité</h1>
-        <a href="#politique"> CGU &amp; Mentions légales </a>
-      </div> -->
+        <a href="CGV&MENTIONS-LEGALES.pdf" target="_blank">
+          CGV &amp; Mentions légales
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -76,7 +78,7 @@ export default {};
   margin: auto;
   padding: 1.5rem 0 10px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   /* place-items: center; */
   /* place-content: center; */
@@ -140,6 +142,8 @@ export default {};
   color: rgb(226, 223, 223);
   padding: 10px 0 5px;
   text-decoration: none !important;
+  display: flex;
+  align-items: center;
 }
 .footer__telechargement > a > img {
   width: 30px;
@@ -187,7 +191,7 @@ export default {};
 }
 
 .footer__contacts-content a {
-  color: #ccc;
+  color: rgb(151, 150, 150);
 }
 
 .footer__contacts-content i {
@@ -196,7 +200,9 @@ export default {};
 
 .footer__suivez-nous {
   display: flex;
-  align-self: center;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer__suivez-nous a {
@@ -205,10 +211,10 @@ export default {};
 .footer__suivez-nous a > i {
   color: #ccc;
 }
-/* 
+
 .footer__contacts {
   border-right: 0.5px solid rgb(70, 70, 70);
-} */
+}
 
 .footer__legales {
   display: flex;
@@ -239,6 +245,7 @@ export default {};
   padding: 0;
   font-size: 0.7rem;
   color: rgb(151, 150, 150);
+  text-decoration: none;
 }
 
 @media (min-width: 1500px) {
@@ -270,13 +277,18 @@ export default {};
   }
   .footer__contacts {
     border-right: 0;
-    /* border-bottom: 0.75px solid rgb(102, 100, 100); */
+    border-bottom: 0.75px solid rgb(102, 100, 100);
     padding: 25px 8px;
   }
 
   .footer__telechargement {
     border-right: 0;
     border-bottom: 0.75px solid rgb(102, 100, 100) !important;
+    padding: 25px 8px;
+  }
+
+  .footer__legales {
+    border-right: 0;
     padding: 25px 8px;
   }
 }
