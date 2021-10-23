@@ -8,8 +8,9 @@
     <div class="navbar__modal__content">
       <div class="navbar__modal__content__links">
         <router-link to="/"><i class="fas fa-home"></i></router-link>
-        <router-link to="/about">About</router-link>
+        <router-link to="/about">A propos</router-link>
         <router-link to="/telecharger">Télécharger</router-link>
+        <router-link to="/contact">Contact</router-link>
       </div>
     </div>
   </div>

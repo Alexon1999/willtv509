@@ -8,6 +8,7 @@ import PaiementMonCash from "../views/PaiementMonCash";
 import MesVideos from "../views/MesVideos";
 import Search from "../views/Search";
 import NotFound from "../views/NotFound";
+import Contact from "../views/Contact";
 
 const routes = [
   {
@@ -57,6 +58,11 @@ const routes = [
     name: "Search",
     component: Search,
     props: true,
+  },
+  {
+    path: "/contact",
+    name: "Contact",
+    component: Contact,
   },
 
   {

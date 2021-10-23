@@ -60,7 +60,7 @@
       </div>
     </div>
 
-    <Modal :id="'modeDePaiement'">
+    <Modal :id="'modeDePaiement'" :titre="'Modes de Paiement'">
       <div class="modeDePaiement__content">
         <div class="modeDePaiement__content_card_container">
           <div v-if="loading.credit_card" class="spinner-border" role="status">

@@ -9,8 +9,9 @@
 
       <div class="navbar__links">
         <router-link to="/"><i class="fas fa-home"></i></router-link>
-        <router-link to="/about">About</router-link>
+        <router-link to="/about">A propos</router-link>
         <router-link to="/telecharger">Télécharger</router-link>
+        <router-link to="/contact">Contact</router-link>
       </div>
 
       <div class="navbar__parcourir">
@@ -147,10 +148,10 @@ export default {
 .navbar__left_container {
   display: flex;
   align-items: center;
-  width: 50%;
+  /* width: 50%; */
 }
 .navbar__right_container {
-  width: 100%;
+  /* width: 100%; */
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -166,7 +167,7 @@ export default {
 
 .navbar__links {
   margin-top: 5px;
-  flex: 1;
+  /* flex: 1; */
   display: flex;
   align-items: center;
 }
@@ -258,7 +259,7 @@ export default {
   border-color: rgb(233, 198, 42);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .navbar__links {
     display: none;
   }

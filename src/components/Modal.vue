@@ -16,7 +16,7 @@
       <div class="modal-content text-dark">
         <div class="modal-header">
           <h5 class="modal-title" id="staticBackdropLabel">
-            Modes de Paiement
+            {{ titre }}
           </h5>
           <button
             type="button"
@@ -48,7 +48,7 @@
 <script>
 export default {
   name: "Modal",
-  props: { id: String },
+  props: { id: String, titre: String },
 };
 </script>
 

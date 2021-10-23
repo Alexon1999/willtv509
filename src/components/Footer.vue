@@ -57,6 +57,8 @@
         <a href="CGV&MENTIONS-LEGALES.pdf" target="_blank">
           CGV &amp; Mentions légales
         </a>
+        <a href="CGU.pdf" target="_blank">CGU</a>
+        <a href="COOKIES.pdf" target="_blank">Cookies</a>
       </div>
     </div>
   </div>
