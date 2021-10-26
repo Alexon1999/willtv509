@@ -157,4 +157,26 @@ export default {
     margin-bottom: 1.8rem;
   }
 }
+
+@media (max-width: 600px) {
+  .carousel-indicators {
+    display: none;
+  }
+
+  .carousel__container {
+    mask-image: none !important;
+  }
+
+  /* à enlever s'il faut, si l'image n'est pas bien rendu */
+  .carousel-item__container {
+    height: 90px;
+    display: block;
+  }
+
+  .carousel-item__container img {
+    object-fit: cover !important;
+    width: 100%;
+    height: 100%;
+  }
+}
 </style>

@@ -66,6 +66,7 @@ export default {
   box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
   border: none;
   position: relative;
+  border-top-left-radius: 5px;
 }
 
 .card__prix {
@@ -118,6 +119,7 @@ export default {
   height: 100%;
   object-fit: fill;
   display: block;
+  border-top-left-radius: 5px;
 }
 
 @media (max-width: 1200px) {
@@ -130,12 +132,23 @@ export default {
 
 @media only screen and (max-width: 600px), only screen and (hover: none) {
   .card {
-    height: 200px;
-    width: 150px;
+    min-height: unset;
+    height: 160px;
+    width: 130px;
+    margin: 0 10px;
   }
 
   .popover {
     display: none;
+  }
+
+  .card__prix {
+    height: 18px;
+  }
+
+  .card__prix img {
+    height: 100%;
+    width: auto;
   }
 }
 </style>
