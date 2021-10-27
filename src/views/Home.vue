@@ -30,6 +30,7 @@
 import Carousel from "@/components/Carousel.vue";
 import Container from "@/components/Container.vue";
 import getCategoriesVideos from "@/composables/getCategoriesVideos";
+import free_subscription from "@/assets/free_subscription.jpeg";
 
 export default {
   name: "Home",
@@ -45,8 +46,7 @@ export default {
         {
           active: true,
           id: 1,
-          img_src:
-            "https://m.media-amazon.com/images/S/sonata-images-prod/FR_Hero_Without_Remorse_Evergreen/12016d59-fe2c-407e-b357-969d064a5d03._UR3000,600_SX1500_FMjpg_.jpeg",
+          img_src: free_subscription,
         },
         {
           id: 2,
