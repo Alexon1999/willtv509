@@ -31,6 +31,7 @@ import Carousel from "@/components/Carousel.vue";
 import Container from "@/components/Container.vue";
 import getCategoriesVideos from "@/composables/getCategoriesVideos";
 import free_subscription from "@/assets/free_subscription.jpeg";
+import presentation from "@/assets/presentation.jpeg";
 
 export default {
   name: "Home",
@@ -50,8 +51,7 @@ export default {
         },
         {
           id: 2,
-          img_src:
-            "https://m.media-amazon.com/images/S/sonata-images-prod/FR_Hero_Le_Loup_De_Wall_Street_Evergreen/c723f898-116b-455b-88e2-54cac667e251._UR3000,600_SX1500_FMjpg_.jpeg",
+          img_src: presentation,
         },
       ],
 
