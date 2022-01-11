@@ -41,5 +41,75 @@
 
     <!-- paypal -->
     <script src="https://www.paypal.com/sdk/js?client-id=AWsyqrA3pBuyvQw1orYJVX5Jp4GtF_MqZmqwZa61zz2drHZ8iulDpPWvnHGXazTpbyb3UPiGSQcP4LCQ"></script>
+
+    <!-- Weglot -->
+    <!-- <script
+      type="text/javascript"
+      src="https://cdn.weglot.com/weglot.min.js"
+    ></script>
+    <script>
+      Weglot.initialize({
+        api_key: "wg_7eea1facc5a045cc37522039d7a1eea81",
+      });
+    </script> -->
+
+    <!-- Google translate -->
+    <!-- <div id="google_translate_element"></div>
+
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          { pageLanguage: "fr", layout: 2 },
+          "google_translate_element"
+        );
+      }
+    </script>
+
+    <script
+      type="text/javascript"
+      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script> -->
+
+    <!-- Localize -->
+    <script src="https://global.localizecdn.com/localize.js"></script>
+    <script>
+      !(function(a) {
+        if (!a.Localize) {
+          a.Localize = {};
+          for (
+            var e = [
+                "translate",
+                "untranslate",
+                "phrase",
+                "initialize",
+                "translatePage",
+                "setLanguage",
+                "getLanguage",
+                "getSourceLanguage",
+                "detectLanguage",
+                "getAvailableLanguages",
+                "untranslatePage",
+                "bootstrap",
+                "prefetch",
+                "on",
+                "off",
+                "hideWidget",
+                "showWidget",
+              ],
+              t = 0;
+            t < e.length;
+            t++
+          )
+            a.Localize[e[t]] = function() {};
+        }
+      })(window);
+    </script>
+
+    <script>
+      Localize.initialize({
+        key: "PHcZMuAHzZB6Q",
+        rememberLanguage: true,
+      });
+    </script>
   </body>
 </html>

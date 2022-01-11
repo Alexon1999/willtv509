@@ -2,14 +2,22 @@
   <div class="about">
     <div class="about_top about_container">
       <div class="about_top_right">
-        <h1 class="about_top__heading">
-          <span class="about_title">WillTV509</span> est né avec l'idée de vous
-          donner une plateforme de streaming tout à fait légal où vous pouvez
-          trouver beaucoup de titres pour vous divertir au maximum.
-        </h1>
+        <transition name="about_top__heading">
+          <h1 class="about_top__heading" v-if="heading_show">
+            <span class="about_title">WillTV509</span> est né avec l'idée de
+            vous donner une plateforme de streaming tout à fait légal où vous
+            pouvez trouver beaucoup de titres pour vous divertir au maximum.
+          </h1>
+        </transition>
       </div>
       <div>
-        <img src="../assets/movie_time.svg" alt="movie_time" />
+        <transition name="about_top_right__img">
+          <img
+            src="../assets/movie_time.svg"
+            alt="movie_time"
+            v-if="img_show"
+          />
+        </transition>
       </div>
 
       <div class="mouse">
@@ -22,7 +30,7 @@
       <div class="about__catalogue_items">
         <div class="about__catalogue__item">
           <img src="../assets/movies.png" alt="movies" />
-          <p>Films des feuilletons</p>
+          <p>Films &amp; Feuilletons</p>
         </div>
         <div class="about__catalogue__item">
           <img src="../assets/series.png" alt="series" />
@@ -84,8 +92,24 @@
 </template>
 
 <script>
+import { onMounted, ref } from "@vue/runtime-core";
 export default {
   name: "About",
+
+  setup() {
+    const heading_show = ref(false);
+    const img_show = ref(false);
+
+    onMounted(() => {
+      heading_show.value = true;
+      img_show.value = true;
+    });
+
+    return {
+      heading_show,
+      img_show,
+    };
+  },
 };
 </script>
 
@@ -120,6 +144,30 @@ export default {
   font-size: 1.6rem;
   text-align: center;
   line-height: 3rem;
+}
+
+.about_top__heading-enter-from {
+  transform: translateY(-100px);
+  opacity: 0;
+}
+
+.about_top__heading-enter-to {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.about_top_right__img-enter-from {
+  transform: translateX(100px);
+  opacity: 0;
+}
+.about_top_right__img-enter-to {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.about_top__heading-enter-active,
+.about_top_right__img-enter-active {
+  transition: all 2s ease;
 }
 
 .about__catalogue {
