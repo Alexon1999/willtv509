@@ -92,7 +92,7 @@ export default {
       if (search_input.value.value) {
         router.push({
           name: "Search",
-          params: { word: search_input.value.value },
+          params: { query: search_input.value.value },
         });
       }
     };

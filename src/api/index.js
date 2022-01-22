@@ -21,6 +21,12 @@ const Api = {
     return data;
   },
 
+  async getVideosBySearchQuery(SearchQuery) {
+    if (!SearchQuery) return;
+    const { data } = await axios.get(`api/videos/query/${SearchQuery}/`);
+    return data;
+  },
+
   async saveClient(client) {
     const { data } = await axios.post("api/create-client/", client);
     return data;

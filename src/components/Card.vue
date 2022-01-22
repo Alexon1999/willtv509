@@ -3,6 +3,7 @@
   <!-- https://codepen.io/jorgemoovein-the-bashful/pen/rNOXXxb -->
   <div
     class="card"
+    :style="style"
     ref="card"
     tabindex="0"
     data-bs-toggle="popover"
@@ -17,15 +18,15 @@
         name: 'Details',
         params: { id: data.id, categorie: data.categorie.name },
       }"
-      ><img
-        :src="data.image_url || 'https://i.ibb.co/ThPNnzM/blade-runner.jpg'"
-    /></router-link>
+    >
+      <img :src="data.image_url || 'https://i.ibb.co/ThPNnzM/blade-runner.jpg'" />
+    </router-link>
 
     <div class="card__prix">
       <!-- :class="{ gratuit: data.prix === 0, payant: data.prix > 0 }" -->
 
       <!-- <div class="card__prix_round"></div>
-      {{ data.prix > 0 ? "payant" : "gratuit" }} -->
+      {{ data.prix > 0 ? "payant" : "gratuit" }}-->
       <img v-if="data.prix > 0" src="../assets/dollar.svg" />
       <img v-else src="../assets/gratuit.svg" />
     </div>
@@ -37,7 +38,7 @@ import { onMounted, onUnmounted, ref } from "vue";
 
 export default {
   name: "Card",
-  props: { data: Object },
+  props: { data: Object, style: Object },
   setup() {
     const card = ref(null);
     const popover = ref(null);

@@ -5,20 +5,16 @@
     <!-- <Container :data="films" :titre="'Vissionnez en direct'" /> -->
 
     <div class="home__container">
-      <div class="spinner__container" v-if="loading">
-        <div class="spinner spinner-border text-warning" role="status">
-          <span class="sr-only">Loading...</span>
-        </div>
-      </div>
+      <Spinner :loading="loading" />
       <Container
-        v-else
+        v-if="!loading"
         v-for="categorie in datas"
         :key="categorie.id"
         :data="categorie.videos"
         :categorie="{
           name: categorie.name,
           id: categorie.id,
-          description: categorie.description,
+          description: categorie.description
         }"
       />
     </div>
@@ -29,13 +25,14 @@
 // @ is an alias to /src
 import Carousel from "@/components/Carousel.vue";
 import Container from "@/components/Container.vue";
+import Spinner from "@/components/Spinner.vue";
 import getCategoriesVideos from "@/composables/getCategoriesVideos";
 import free_subscription from "@/assets/free_subscription.jpeg";
 import presentation from "@/assets/presentation.jpeg";
 
 export default {
   name: "Home",
-  components: { Carousel, Container },
+  components: { Carousel, Container, Spinner },
 
   setup() {
     const { datas, getDatas, loading } = getCategoriesVideos();
@@ -65,18 +62,5 @@ export default {
 <style >
 .home__container {
   min-height: 50vh;
-}
-
-.spinner__container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50vh;
-  width: 100%;
-}
-
-.spinner {
-  width: 3rem;
-  height: 3rem;
 }
 </style>

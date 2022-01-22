@@ -54,7 +54,7 @@ const routes = [
     component: MesVideos,
   },
   {
-    path: "/search/:word",
+    path: "/search/:query",
     name: "Search",
     component: Search,
     props: true,
