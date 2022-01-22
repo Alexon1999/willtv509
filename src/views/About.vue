@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <div class="about_top about_container">
-      <div class="about_top_right">
+      <div class="about_top_left">
         <transition name="about_top__heading">
           <h1 class="about_top__heading" v-if="heading_show">
             <span class="about_title">WillTV509</span> est né avec l'idée de
@@ -83,7 +83,7 @@
             </span>
           </h1>
           <div class="about__services__subscription_btn">
-            <router-link class="" to="/abonnement">Voir les tarifs</router-link>
+            <router-link to="/abonnement">Voir les tarifs</router-link>
           </div>
         </div>
       </div>
@@ -285,13 +285,13 @@ export default {
   opacity: 0.9;
 }
 
-.mouse {
+.about_top .mouse {
   position: absolute;
   bottom: 7%;
   left: 50%;
   transform: translateX(-50%);
 }
-.mouse-icon {
+.about_top .mouse-icon {
   width: 30px;
   height: 50px;
   border: 2px solid #ebe83a;
@@ -300,7 +300,7 @@ export default {
   position: relative;
   text-align: center;
 }
-.mouse-wheel {
+.about_top .mouse-wheel {
   height: 6px;
   margin: 2px auto 0;
   display: block;
@@ -322,5 +322,137 @@ export default {
     margin-top: 20px;
     opacity: 0;
   }
+}
+
+@media(max-width: 1150px){
+  .about_top__heading {
+  font-size: 1.4rem;
+}
+}
+
+@media(max-width: 950px){
+  .about_top__heading {
+  font-size: 1.4rem;
+}
+
+.about_top img {
+  min-width: 300px;
+}
+
+.about__services__free_heading_1,
+.about__services__subscription_heading_1 {
+  font-size: 2rem;
+}
+
+.about__services__free_heading_2,
+.about__services__subscription_heading_2 {
+  font-size: 2.5rem;
+}
+}
+
+@media(max-width: 850px){
+
+  .about__services__free,
+.about__services__subscription {
+  padding: 2rem;
+  position: relative;
+  min-height: 300px;
+  z-index: 1;
+}
+
+
+  .about__services__free img,
+.about__services__subscription img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.3;
+  z-index: -1;
+  max-width: 400px;
+}
+
+
+.about__services__free_heading_1,
+.about__services__subscription_heading_1 {
+  font-size: 1.8rem;
+}
+
+.about__services__free_heading_2,
+.about__services__subscription_heading_2 {
+  font-size: 2.3rem;
+}
+}
+
+@media(max-width: 750px){
+  .about_top__heading {
+  font-size: 1.1rem;
+}
+
+.about_top img {
+  min-width: 250px;
+}
+
+.about__services__free_heading_1,
+.about__services__subscription_heading_1 {
+  font-size: 1.6rem;
+}
+
+.about__services__free_heading_2,
+.about__services__subscription_heading_2 {
+  font-size: 2.1rem;
+}
+}
+
+@media(max-width: 650px){
+.about_top {
+  flex-direction: column;
+}
+
+.about_top img {
+  max-width: 250px;
+  margin-top: 10px;
+}
+
+.about__services__free_heading_1,
+.about__services__subscription_heading_1 {
+  font-size: 1.3rem;
+}
+
+.about__services__free_heading_2,
+.about__services__subscription_heading_2 {
+  font-size: 1.7rem;
+}
+
+.about__services__subscription_btn > a {
+  padding: 0.7rem 0.5rem;
+}
+
+.about__services__subscription img{
+  max-width: 325px;
+}
+
+.about_top .mouse {
+  bottom: 3%;
+}
+.about_top .mouse-icon {
+  width: 20px;
+  height: 35px;
+  border: 2px solid #ebe83a;
+  border-radius: 15px;
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+}
+.about_top .mouse-wheel {
+  height: 6px;
+  margin: 2px auto 0;
+  display: block;
+  width: 3px;
+  background-color: #ebe83a;
+  border-radius: 50%;
+  -webkit-animation: wheel-up-down 1.6s ease infinite;
+  animation: wheel-up-down 1.6s ease infinite;
+}
 }
 </style>
