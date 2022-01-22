@@ -1,5 +1,5 @@
 <template>
-  <div class="spinner__container" v-if="loading">
+  <div class="spinner__container">
     <div class="spinner spinner-border text-warning" role="status">
       <span class="sr-only">Loading...</span>
     </div>
@@ -9,9 +9,6 @@
 <script>
 export default {
   name: "Spinner",
-  props:{
-    loading: Boolean
-  }
 }
 </script>
 

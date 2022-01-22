@@ -3,8 +3,8 @@
     <div class="search__explorer">
       <h1 class="search__explorer__heading">Explorer</h1>
 
-      <Spinner :loading="loading" />
-      <div v-if="!loading" class="search__explorer__container">
+      <Spinner v-if="loading" />
+      <div v-else class="search__explorer__container">
         <Card v-for="data in datas" :data="data" :style="{ 'margin-left': 0 }" />
       </div>
     </div>

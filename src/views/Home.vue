@@ -5,9 +5,9 @@
     <!-- <Container :data="films" :titre="'Vissionnez en direct'" /> -->
 
     <div class="home__container">
-      <Spinner :loading="loading" />
+      <Spinner v-if="loading" />
       <Container
-        v-if="!loading"
+        v-else
         v-for="categorie in datas"
         :key="categorie.id"
         :data="categorie.videos"
